@@ -1,8 +1,8 @@
-
+import { getAllUsers as showUsers } from "./modules/view/userViews.js";
 // globals ----------------------------------------------------------------
-let myApp = document.getElementById('app');
 
-// fetch users ------------------------------------------------------------
+
+// fetch users  model code ------------------------------------------------
 fetchUsers();
 
 function fetchUsers() {
@@ -31,8 +31,11 @@ function fetchUsers() {
 }
 
 
-
+// viev codes ------------------------------------------------
 function recivedUsers(myUsers) {
-    console.log(myUsers);
+
+    showUsers(myUsers, 'app', false);
+
+
 }
 
