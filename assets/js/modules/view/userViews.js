@@ -1,6 +1,6 @@
 
 
-export function showAllUsers(userData, displayElement, buttonIf) {
+export function showAllUsers(userData, displayElement, buttonIf, buttonText) {
 
     // find DOM element
     let myApp = document.getElementById(displayElement);
@@ -20,7 +20,7 @@ export function showAllUsers(userData, displayElement, buttonIf) {
 
         if (buttonIf) {
 
-            myEditButton = `<button onclick="window._myEventListners.userClicked(${userObject.id})">edit</button>`;
+            myEditButton = `<button onclick="window._myEventListners.userClicked(${userObject.id})">${buttonText}</button>`;
             //myEditButton = `<button onclick="showUser(${userObject.id})">edit</button>`;
         }
 
@@ -43,17 +43,21 @@ export function showUser(myUser, displayElement, returnButton) {
     let myUserHtml = '';
     let myEditButton = '';
 
+
+
+
+
     // iterate over the user object
 
     for (const key in myUser) {
 
-        console.log(`${key}: ${myUser[key]}`);
+
 
         myUserHtml += `<tr><td>${key}: </td><td>${myUser[key]}</td></tr>`;
     }
 
     if (returnButton) {
-        myEditButton = `<button onclick="window._myEventListners.userViewDone()">edit</button>`;
+        myEditButton = `<button onclick="window._myEventListners.userViewDone()">done</button>`;
     }
 
     myApp.innerHTML = `<section><h2>User</h2><table>${myUserHtml}</table>${myEditButton}</section>`;
