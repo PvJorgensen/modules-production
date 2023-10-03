@@ -32,23 +32,34 @@ export function showAllUsers(userData, displayElement, buttonIf) {
 }
 
 
-/*
-<table>
-    <tr>
-        <th>Company</th>
-        <th>Contact</th>
-        <th>Country</th>
-    </tr>
-    <tr>
-        <td>Alfreds Futterkiste</td>
-        <td>Maria Anders</td>
-        <td>Germany</td>
-    </tr>
-    <tr>
-        <td>Centro comercial Moctezuma</td>
-        <td>Francisco Chang</td>
-        <td>Mexico</td>
-    </tr>
-</table>
 
-*/
+export function showUser(myUser, displayElement, returnButton) {
+
+    let myApp = document.getElementById(displayElement);
+    // clear DOM element
+    myApp.innerHTML = '';
+
+
+    let myUserHtml = '';
+    let myEditButton = '';
+
+    // iterate over the user object
+
+    for (const key in myUser) {
+
+        console.log(`${key}: ${myUser[key]}`);
+
+        myUserHtml += `<tr><td>${key}: </td><td>${myUser[key]}</td></tr>`;
+    }
+
+    if (returnButton) {
+        myEditButton = `<button onclick="window._myEventListners.userViewDone()">edit</button>`;
+    }
+
+    myApp.innerHTML = `<section><h2>User</h2><table>${myUserHtml}</table>${myEditButton}</section>`;
+
+
+
+
+
+}

@@ -1,4 +1,4 @@
-import { showAllUsers } from "./modules/view/userViews.js";
+import { showAllUsers, showUser } from "./modules/view/userViews.js";
 
 // hoisting to window level.
 window._myEventListners = { userClicked };
@@ -46,7 +46,32 @@ function recivedUsers(myUsers) {
 
 
 function userClicked(myId) {
-    console.warn(myId);
+
+    // test kode
+    let myUser = {
+
+        name: 'John Doe',
+
+        email: 'john.doe@example.com',
+
+        age: 25,
+
+        dob: '08/02/1989',
+
+        active: true
+    };
+
+
+    myUser = {
+        make: "Ford",
+        model: "Explorer",
+        year: 2008,
+        color: "red",
+        fuel: "gas",
+        mpg: 18
+    }
+
+    showUser(myUser, 'app', false);
 }
 
 
